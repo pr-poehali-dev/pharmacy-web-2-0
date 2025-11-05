@@ -187,13 +187,13 @@ export default function Index() {
             <div className="flex-1 relative">
               <Input 
                 placeholder="Поиск по лекарствам, болезням, веществу" 
-                className="pl-10 pr-24 h-12 border-2 border-cyan-200 focus:border-cyan-400 rounded-full"
+                className="pl-10 h-12 border-2 border-cyan-200 focus:border-cyan-400 rounded-full"
               />
               <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-              <Button className="absolute right-1 top-1/2 -translate-y-1/2 web2-button glossy h-10 px-6 rounded-full text-white font-semibold">
-                Найти
-              </Button>
             </div>
+            <Button className="web2-button glossy h-12 px-8 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition-transform">
+              Найти
+            </Button>
           </div>
 
           <div className="mt-3 flex gap-3 text-sm overflow-x-auto pb-2">
