@@ -99,8 +99,9 @@ export default function Index() {
             <div className="flex items-center gap-3">
               <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="web2-button glossy w-12 h-12 rounded-lg">
-                    <Icon name="Menu" size={24} className="text-white" />
+                  <Button className="web2-button glossy h-12 px-4 rounded-xl flex items-center gap-2 text-white font-semibold shadow-lg hover:scale-105 transition-transform">
+                    <span className="text-2xl">🏥</span>
+                    Аптечка
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-80 overflow-y-auto">
@@ -186,9 +187,12 @@ export default function Index() {
             <div className="flex-1 relative">
               <Input 
                 placeholder="Поиск по лекарствам, болезням, веществу" 
-                className="pl-10 h-12 border-2 border-cyan-200 focus:border-cyan-400 rounded-full"
+                className="pl-10 pr-24 h-12 border-2 border-cyan-200 focus:border-cyan-400 rounded-full"
               />
               <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <Button className="absolute right-1 top-1/2 -translate-y-1/2 web2-button glossy h-10 px-6 rounded-full text-white font-semibold">
+                Найти
+              </Button>
             </div>
           </div>
 
