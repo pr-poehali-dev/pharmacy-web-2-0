@@ -17,12 +17,12 @@ export default function Index() {
   const [email, setEmail] = useState('');
 
   const featuredProducts = [
-    { id: 1, name: 'Bioderma Sensibio Вода мицеллярная', price: 2024, oldPrice: null, badge: '🔥 Хит продаж', country: 'Франция', image: '💧' },
-    { id: 2, name: 'Oraxz Ocean Хрона Пиколинат 200 мкг', price: 2500, oldPrice: null, badge: null, country: 'Турция', image: '💊' },
-    { id: 3, name: 'Aktra Таблетки покрытые оболочкой', price: 4924, oldPrice: null, badge: null, country: 'США', image: '💊' },
-    { id: 4, name: 'Витамин С Эвалар Таблетки шипучие', price: 655, oldPrice: null, badge: '⚡ -30%', country: 'Россия', image: '🍊' },
-    { id: 5, name: 'Кальцемин Адванс таблетки покрытые', price: 2254, oldPrice: null, badge: '🔥 Популярно', country: 'США', image: '💊' },
-    { id: 6, name: 'Грамицидин с анестетиком Спрей', price: 867, oldPrice: null, badge: null, country: 'Россия', image: '💉' },
+    { id: 1, name: 'Bioderma Sensibio Вода мицеллярная', price: 2024, oldPrice: null, badge: '🔥 Хит продаж', country: 'Франция', image: 'https://cdn.poehali.dev/projects/21a9b731-8646-4a8d-adfc-11ba53c4f4ed/files/6d8c54c2-5704-4720-8ab8-05721f204ea2.jpg' },
+    { id: 2, name: 'Oraxz Ocean Хрона Пиколинат 200 мкг', price: 2500, oldPrice: null, badge: null, country: 'Турция', image: 'https://cdn.poehali.dev/projects/21a9b731-8646-4a8d-adfc-11ba53c4f4ed/files/12f03009-ae74-4a88-b784-eddf0e3e1461.jpg' },
+    { id: 3, name: 'Aktra Таблетки покрытые оболочкой', price: 4924, oldPrice: null, badge: null, country: 'США', image: 'https://cdn.poehali.dev/projects/21a9b731-8646-4a8d-adfc-11ba53c4f4ed/files/12f03009-ae74-4a88-b784-eddf0e3e1461.jpg' },
+    { id: 4, name: 'Витамин С Эвалар Таблетки шипучие', price: 655, oldPrice: null, badge: '⚡ -30%', country: 'Россия', image: 'https://cdn.poehali.dev/projects/21a9b731-8646-4a8d-adfc-11ba53c4f4ed/files/c28f37fc-b40a-47eb-813f-5a675c92c66e.jpg' },
+    { id: 5, name: 'Кальцемин Адванс таблетки покрытые', price: 2254, oldPrice: null, badge: '🔥 Популярно', country: 'США', image: 'https://cdn.poehali.dev/projects/21a9b731-8646-4a8d-adfc-11ba53c4f4ed/files/12f03009-ae74-4a88-b784-eddf0e3e1461.jpg' },
+    { id: 6, name: 'Грамицидин с анестетиком Спрей', price: 867, oldPrice: null, badge: null, country: 'Россия', image: 'https://cdn.poehali.dev/projects/21a9b731-8646-4a8d-adfc-11ba53c4f4ed/files/12f03009-ae74-4a88-b784-eddf0e3e1461.jpg' },
   ];
 
   const promoSlides = [
@@ -165,8 +165,8 @@ export default function Index() {
                 {product.badge && (
                   <Badge className="mb-2 gradient-pink">{product.badge}</Badge>
                 )}
-                <div className="text-6xl text-center my-4 group-hover:scale-110 transition-transform">
-                  {product.image}
+                <div className="h-32 flex items-center justify-center my-4 group-hover:scale-110 transition-transform">
+                  <img src={product.image} alt={product.name} className="max-h-full max-w-full object-contain" />
                 </div>
                 <h3 className="text-sm font-medium mb-2 h-10 overflow-hidden">{product.name}</h3>
                 <p className="text-xs text-gray-500 mb-3">{product.country}</p>
