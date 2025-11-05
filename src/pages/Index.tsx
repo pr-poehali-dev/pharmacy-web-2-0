@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
@@ -15,6 +16,35 @@ import {
 export default function Index() {
   const [cartCount, setCartCount] = useState(0);
   const [email, setEmail] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const menuCategories = [
+    {
+      name: 'Лекарства',
+      subcategories: [
+        { name: 'Аллергия', link: '#' },
+        { name: 'Инфекционные и вирусные заболевания', link: '#' },
+        { name: 'Противовоспалительные и обезболивающие средства', link: '#' },
+        { name: 'Заболевания крови', link: '#' },
+        { name: 'Мочеполовая система и почки', link: '#' },
+        { name: 'Онкологические заболевания', link: '#' },
+        { name: 'Венотоники', link: '#' },
+        { name: 'Противопаразитарные средства', link: '#' },
+        { name: 'Обмен веществ', link: '#' },
+      ]
+    },
+    { name: 'Болезни', subcategories: [] },
+    { name: 'Витамины и БАДы', subcategories: [] },
+    { name: 'Косметика', subcategories: [] },
+    { name: 'Дермакосметика', subcategories: [] },
+    { name: 'Гигиена', subcategories: [] },
+    { name: 'Медицинские изделия и приборы', subcategories: [] },
+    { name: 'Мама и малыш', subcategories: [] },
+    { name: 'Диетическое питание', subcategories: [] },
+    { name: 'Уход за больными', subcategories: [] },
+    { name: 'Ортопедия', subcategories: [] },
+    { name: 'Аптечки', subcategories: [] },
+  ];
 
   const featuredProducts = [
     { id: 1, name: 'Bioderma Sensibio Вода мицеллярная', price: 2024, oldPrice: null, badge: '🔥 Хит продаж', country: 'Франция', image: 'https://cdn.poehali.dev/projects/21a9b731-8646-4a8d-adfc-11ba53c4f4ed/files/6d8c54c2-5704-4720-8ab8-05721f204ea2.jpg' },
@@ -67,6 +97,52 @@ export default function Index() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
+              <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="web2-button glossy w-12 h-12 rounded-lg">
+                    <Icon name="Menu" size={24} className="text-white" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-80 overflow-y-auto">
+                  <SheetHeader>
+                    <SheetTitle className="text-left text-cyan-600 flex items-center gap-2">
+                      <div className="w-10 h-10 rounded-full gradient-web2 flex items-center justify-center text-white font-bold glossy">
+                        36.6
+                      </div>
+                      Меню
+                    </SheetTitle>
+                  </SheetHeader>
+                  <div className="mt-6 space-y-1">
+                    <div className="bg-cyan-600 text-white px-4 py-3 rounded-lg font-semibold mb-2">
+                      Выгодно 💰
+                    </div>
+                    {menuCategories.map((category, idx) => (
+                      <div key={idx}>
+                        <div className={`px-4 py-3 font-medium rounded-lg cursor-pointer transition-colors ${
+                          category.name === 'Лекарства' 
+                            ? 'bg-cyan-500 text-white' 
+                            : 'hover:bg-gray-100 text-gray-700'
+                        }`}>
+                          {category.name}
+                        </div>
+                        {category.name === 'Лекарства' && category.subcategories.length > 0 && (
+                          <div className="ml-4 mt-2 space-y-1 border-l-2 border-gray-200 pl-3">
+                            {category.subcategories.map((sub, subIdx) => (
+                              <a
+                                key={subIdx}
+                                href={sub.link}
+                                className="block py-2 text-sm text-gray-600 hover:text-cyan-600 transition-colors"
+                              >
+                                {sub.name}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </SheetContent>
+              </Sheet>
               <div className="w-12 h-12 rounded-full gradient-web2 flex items-center justify-center text-white font-bold text-xl glossy shadow-lg">
                 36.6
               </div>
